@@ -1,5 +1,0 @@
-#ifndef RUNDA_H_INCLUDED
-#define RUNDA_H_INCLUDED
-
-
-#endif // RUNDA_H_INCLUDED

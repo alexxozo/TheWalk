@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/TheWalk.dir/main.cpp.o CMakeFiles/TheWalk.dir/Harta_Implementare.cpp.o CMakeFiles/TheWalk.dir/Robot_Implementare.cpp.o CMakeFiles/TheWalk.dir/Joc_Implementare.cpp.o  -o TheWalk.exe -Wl,--out-implib,libTheWalk.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

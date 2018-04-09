@@ -1,76 +1,64 @@
 #ifndef ROBOT_H_INCLUDED
 #define ROBOT_H_INCLUDED
 
+#include "StructuriHelper.h"
 #include "Harta.h"
-enum Directie { Stanga, Sus, Dreapta, Jos };
+
 
 class Robot {
-    protected:
+protected:
     Punct pozitie;
     Harta mapa;
+    Item item;
+    char nume;
+    bool in_viata;
+    int invincibil_counter, vedere_counter;
+    bool blocat;
+    Directie ultima_directie;
+    int range_vedere;
 
-    public:
-        Robot(Harta m): mapa(m) {
-            /// Incepem din coltul stanga sus
-            pozitie.x = 0;
-            pozitie.y = 0;
-        }
+public:
+    /// Constructori si Destructori
+    Robot();
 
-        void Misca(Directie dir) {
-            /// Citim directia in care dorim deplasarea
-            int marime_mapa = mapa.GetMarime();
-            switch(dir) {
-                case Stanga:
-                    if(pozitie.x == 0) { std::cout<<"Nu se poate!\n"; return ; }
-                    pozitie.x--;
-                    break;
-                case Dreapta:
-                    if(pozitie.x == marime_mapa - 1) { std::cout<<"Nu se poate!\n"; return ; }
-                    pozitie.x++;
-                    break;
-                case Sus:
-                    if(pozitie.y == 0) { std::cout<<"Nu se poate!\n"; return ; }
-                    pozitie.y--;
-                    break;
-                case Jos:
-                    if(pozitie.y == marime_mapa - 1) { std::cout<<"Nu se poate!\n"; return ; }
-                    pozitie.y++;
-                    break;
-            }
-        }
+    /// Functii de interactionare cu harta/iteme/capcane
+    void Misca(Directie dir);
+    void Afisare();
+    void Utilizeaza_Item(Item i);
+    void Verifica_Ridicare_Item();
+    void Verifica_Capcana();
+    void Efect_Capcana(Capcana capcana);
+    void Verificare_Locatie();
 
-        void Afisare() {
-            /// Afisam mapa si pozitia robotului
-            int marime_mapa = mapa.GetMarime();
-            for(int i = 0; i < marime_mapa; i++)
-            {
-                ///maybe needs refactoring
-                for(int j = 0; j < marime_mapa; j++) {
-                    if((i == pozitie.y + 4 || i == pozitie.y + 3 || i == pozitie.y + 2 || i == pozitie.y + 1) && j == pozitie.x)
-                        std::cout<<mapa[i][j]<<' ';
-                    else if((i == pozitie.y - 4 || i == pozitie.y - 3 || i == pozitie.y - 2 || i == pozitie.y - 1) && j == pozitie.x)
-                        std::cout<<mapa[i][j]<<' ';
-                    else if((j == pozitie.x + 4 || j == pozitie.x + 3 || j == pozitie.x + 2 || j == pozitie.x + 1) && i == pozitie.y)
-                        std::cout<<mapa[i][j]<<' ';
-                    else if((j == pozitie.x - 4 || j == pozitie.x - 3 || j == pozitie.x - 2 || j == pozitie.x - 1) && i == pozitie.y)
-                        std::cout<<mapa[i][j]<<' ';
-                    else if(i == pozitie.y && j == pozitie.x) std::cout<<"X ";
-                    else std::cout<<"?"<<' ';
-                }
-                std::cout<<'\n';
-            }
-        }
-
-        void SetPozitie(int x, int y) { pozitie.x = x; pozitie.y = y; }
-        Punct GetPozitie() { return pozitie; }
+    /// Getters & Setters
+    void SetPozitie(int x, int y) {
+        pozitie.x = x;
+        pozitie.y = y;
+    }
+    Punct GetPozitie() { return pozitie; }
+    void SetHarta(Harta &h) { mapa = h; }
+    Harta GetHarta() { return mapa; }
+    bool Mort() { return !in_viata; }
 };
 
-class Ultra : public Robot{
-    char nume;
-    public:
-        Ultra(): Robot(mapa){
-            nume = 'U';
-        }
+/// Clasele pentru fiecare tip de robot
+class Ultra : public Robot {
+public:
+    Ultra() {
+        nume = 'U';
+    }
+};
+class Mega : public Robot {
+public:
+    Mega() {
+        nume = 'M';
+    }
+};
+class Giga : public Robot {
+public:
+    Giga() {
+        nume = 'G';
+    }
 };
 
 #endif // ROBOT_H_INCLUDED
