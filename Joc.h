@@ -16,8 +16,9 @@ public:
     Joc(int marime, Robot &r);
 
     /// Functii pentru desfasurarea unei runde si a unui joc complet
-    void Joaca();
+    void Joaca(Mod mod);
     void JoacaRunda();
+    void JoacaRundaSimulare();
 
 };
 

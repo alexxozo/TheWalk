@@ -21,4 +21,8 @@ enum Directie {
     STANGA, SUS, DREAPTA, JOS
 };
 
+enum Mod {
+    NORMAL, SIMULARE
+};
+
 #endif //THEWALK_STRUCTURIHELPER_H

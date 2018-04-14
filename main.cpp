@@ -24,41 +24,60 @@ void Meniu_Principal() {
 
     /// Setup
     Robot robot;
-    int optiuneRobot, marimeHarta;
-    INTRARE:
+    int optiuneRobot, marimeHarta, optiuneMod;
+
+    INTRARE_ROBOT:
     cin >> optiuneRobot;
 
     switch (optiuneRobot) {
         case 1: {
-            Ultra u;
-            robot = u;
+            robot = Ultra();
             break;
         }
         case 2: {
-            Mega m;
-            robot = m;
+            robot = Mega();
             break;
         }
         case 3: {
-            Giga g;
-            robot = g;
+            robot = Giga();
             break;
         }
         default: {
-            cout << "Te rugam sa introduci optiune (1-2-3)";
-            goto INTRARE;
+            cout << "Te rugam sa introduci o optiune valida (1-2-3)";
+            goto INTRARE_ROBOT;
         }
     }
 
-    cout << "\nAcum alege cat de mare sa fie harta (marime minima 15 lungime/latime)";
+
+    cout << "\nAlege cat de mare sa fie harta (marime minima 15 lungime/latime)";
     cin >> marimeHarta;
 
+    INTRARE_MOD:
+    cout << "\nMod de joc:\n";
+    cout << "1.Joc normal\n";
+    cout << "2.Joc simulat de calculator\n";
+    cin >> optiuneMod;
+
     Joc joc(marimeHarta, robot);
-    joc.Joaca();
+
+    switch(optiuneMod) {
+        case 1: {
+            joc.Joaca(NORMAL);
+            break;
+        }
+        case 2: {
+            joc.Joaca(SIMULARE);
+            break;
+        }
+        default: {
+            cout << "Te rugam sa introduci o optiune valida (1-2)";
+            goto INTRARE_MOD;
+        }
+    }
 }
 
 int main() {
-    Meniu_Principal();
 
+    Meniu_Principal();
     return 0;
 }
