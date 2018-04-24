@@ -2,12 +2,9 @@
 #include <ctime>
 #include <cstdlib>
 #include "Harta.h"
+#include "Capcana.h"
+#include "Item.h"
 
-/**
- * Constructor pentru harta fara parametrii
- * Va crea o harta de 15x15 default si va
- * pozitiona capcane si iteme random.
- */
 Harta::Harta() {
     /// Setam marimea si alocam dinamic spatiu pentru matrice
     /// Punem itemele si capcanele pe harta
@@ -25,53 +22,81 @@ Harta::Harta() {
     matrice[sosire.y][sosire.x] = 'F';
 
     /// Punem itemele pe harta cate 2 fiecare
-    Item iteme[3] = {POTIUNE_VEDERE, POTIUNE_INVINCIBILITATE, PAPUCI_SALTARETI};
     int random_x, random_y;
     bool plasat;
-
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
-            plasat = false;
-            while (!plasat) {
-                random_x = rand() % marime;
-                random_y = rand() % marime;
-                if (matrice[random_y][random_x] == '0') {
-                    matrice[random_y][random_x] = iteme[i];
-                    plasat = true;
-                } else plasat = false;
+    /// Populam lista de iteme de pe harta
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            switch (i) {
+                case 0 :
+                    iteme.emplace_back(new PotiuneInvincibilitate());
+                    break;
+                case 1:
+                    iteme.emplace_back(new PotiuneVedere());
+                    break;
+                case 2:
+                    iteme.emplace_back(new PapuciSaltareti());
+                    break;
+                default:
+                    break;
             }
         }
     }
-
-    /// Punem capcanele pe harta cate 5 de fiecare
-    Capcana capcane[3] = {GROAPA, CAPCANA_URS, INTOARCERE_INCEPUT};
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 5; j++) {
-            plasat = false;
-            while (!plasat) {
-                random_x = rand() % marime;
-                random_y = rand() % marime;
-                if (matrice[random_y][random_x] == '0') {
-                    matrice[random_y][random_x] = capcane[i];
-                    plasat = true;
-                } else plasat = false;
-            }
+    /// Le plasam pe harta
+    for (Item *i : iteme) {
+        plasat = false;
+        while (!plasat) {
+            random_x = rand() % marime;
+            random_y = rand() % marime;
+            if (matrice[random_y][random_x] == '0') {
+                matrice[random_y][random_x] = i->simbol;
+                i->pozitie.x = random_x;
+                i->pozitie.y = random_y;
+                plasat = true;
+            } else plasat = false;
         }
     }
 
+    /// Populam lista de capcane
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 5; j++) {
+            switch (i) {
+                case 0 :
+                    capcane.emplace_back(new Groapa());
+                    break;
+                case 1:
+                    capcane.emplace_back(new IntoarcereInceput());
+                    break;
+                case 2:
+                    capcane.emplace_back(new CapcanaUrs());
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    /// Le plasam pe harta
+    for (Capcana *c : capcane) {
+        plasat = false;
+        while (!plasat) {
+            random_x = rand() % marime;
+            random_y = rand() % marime;
+            if (matrice[random_y][random_x] == '0') {
+                matrice[random_y][random_x] = c->simbol;
+                c->pozitie.x = random_x;
+                c->pozitie.y = random_y;
+                plasat = true;
+            } else plasat = false;
+        }
+    }
 }
 
-/**
- * Constructor cu parametrii pentru harta
- * Functioneaza la fel ca cel fara parametrii.
- * @param m = marimea dorita pentru harta, daca
- * aceasta este mai mica ca 15 atunci se va seta
- * marimea default 15.
- */
 Harta::Harta(int m) {
     /// Setam marimea si alocam dinamic spatiu pentru matrice
     if (m < 15) marime = 15;
     else marime = m;
+    /// Setam marimea si alocam dinamic spatiu pentru matrice
+    /// Punem itemele si capcanele pe harta
     matrice = new char *[marime];
     for (int i = 0; i < marime; i++) {
         matrice[i] = new char[marime];
@@ -85,45 +110,75 @@ Harta::Harta(int m) {
     matrice[sosire.y][sosire.x] = 'F';
 
     /// Punem itemele pe harta cate 2 fiecare
-    srand((unsigned int) time(nullptr));
-    Item iteme[3] = {POTIUNE_VEDERE, POTIUNE_INVINCIBILITATE, PAPUCI_SALTARETI};
     int random_x, random_y;
     bool plasat;
-
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 2; j++) {
-            plasat = false;
-            while (!plasat) {
-                random_x = rand() % marime;
-                random_y = rand() % marime;
-                if (matrice[random_y][random_x] == '0') {
-                    matrice[random_y][random_x] = iteme[i];
-                    plasat = true;
-                } else plasat = false;
+    /// Populam lista de iteme de pe harta
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 3; j++) {
+            switch (i) {
+                case 0 :
+                    iteme.emplace_back(new PotiuneInvincibilitate());
+                    break;
+                case 1:
+                    iteme.emplace_back(new PotiuneVedere());
+                    break;
+                case 2:
+                    iteme.emplace_back(new PapuciSaltareti());
+                    break;
+                default:
+                    break;
             }
         }
     }
+    /// Le plasam pe harta
+    for (Item *i : iteme) {
+        plasat = false;
+        while (!plasat) {
+            random_x = rand() % marime;
+            random_y = rand() % marime;
+            if (matrice[random_y][random_x] == '0') {
+                matrice[random_y][random_x] = i->simbol;
+                i->pozitie.x = random_x;
+                i->pozitie.y = random_y;
+                plasat = true;
+            } else plasat = false;
+        }
+    }
 
-    /// Punem capcanele pe harta cate 5 de fiecare
-    Capcana capcane[3] = {GROAPA, CAPCANA_URS, INTOARCERE_INCEPUT};
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 5; j++) {
-            plasat = false;
-            while (!plasat) {
-                random_x = rand() % marime;
-                random_y = rand() % marime;
-                if (matrice[random_y][random_x] == '0') {
-                    matrice[random_y][random_x] = capcane[i];
-                    plasat = true;
-                } else plasat = false;
+    /// Populam lista de capcane
+    for(int i = 0; i < 3; i++) {
+        for(int j = 0; j < 5; j++) {
+            switch (i) {
+                case 0 :
+                    capcane.emplace_back(new Groapa());
+                    break;
+                case 1:
+                    capcane.emplace_back(new IntoarcereInceput());
+                    break;
+                case 2:
+                    capcane.emplace_back(new CapcanaUrs());
+                    break;
+                default:
+                    break;
             }
+        }
+    }
+    /// Le plasam pe harta
+    for (Capcana *c : capcane) {
+        plasat = false;
+        while (!plasat) {
+            random_x = rand() % marime;
+            random_y = rand() % marime;
+            if (matrice[random_y][random_x] == '0') {
+                matrice[random_y][random_x] = c->simbol;
+                c->pozitie.x = random_x;
+                c->pozitie.y = random_y;
+                plasat = true;
+            } else plasat = false;
         }
     }
 }
 
-/*
- * Constructorul de copiere
- */
 Harta::Harta(const Harta &h) {
     /// Copiem marimea, alocam spatiu pt o noua matrice si copiem
     /// continutul din obiectul de copiat
@@ -136,11 +191,11 @@ Harta::Harta(const Harta &h) {
         for (int j = 0; j < marime; j++)
             matrice[i][j] = h.matrice[i][j];
     sosire = h.sosire;
+    /// Copiem listele de iteme si de capcane
+    iteme = h.iteme;
+    capcane = h.capcane;
 }
 
-/**
- * Destructorul
- */
 Harta::~Harta() {
     /// Dealocam memoria pentru matrice
     for (int i = 0; i < marime; i++)
@@ -152,22 +207,11 @@ Harta::~Harta() {
     sosire.y = 0;
 }
 
-/**
- * Operatorul [] pentru a putea folosi harta ca o matrice bidimensionala
- * Exemplu: "harta[i][j]"
- * @param i = indexul liniei
- * @return returneaza linia corespunzatoare
- */
 char *Harta::operator[](int i) {
     if (i > marime) return nullptr;
     return matrice[i];
 }
 
-/**
- * Operatorul = foloseste o procedura asemantoare cu constructorul de copiere
- * @param h = harta pe care vrem sa o copiem in this
- * @return *this
- */
 Harta &Harta::operator=(const Harta &h) {
     /// Procedura din constructorul de copiere
     marime = h.marime;
@@ -179,12 +223,12 @@ Harta &Harta::operator=(const Harta &h) {
         for (int j = 0; j < marime; j++)
             matrice[i][j] = h.matrice[i][j];
     sosire = h.sosire;
+    /// Copiem listele de iteme si de capcane
+    iteme = h.iteme;
+    capcane = h.capcane;
     return *this;
 }
 
-/**
- * Functie de afisare a hartii fara player, utilizata in special pentru debugging.
- */
 void Harta::Afisare() {
     for (int i = 0; i < marime; i++) {
         for (int j = 0; j < marime; j++)

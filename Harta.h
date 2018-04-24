@@ -1,7 +1,11 @@
-#ifndef HARTA_H_INCLUDED
-#define HARTA_H_INCLUDED
+#ifndef THEWALK_REFACTOR_HARTA_H
+#define THEWALK_REFACTOR_HARTA_H
 
 #include "StructuriHelper.h"
+#include <vector>
+
+class Item;
+class Capcana;
 
 class Harta {
 
@@ -9,6 +13,8 @@ protected:
     char **matrice;
     int marime = 0;
     Punct sosire;
+    std::vector<Item*>iteme;
+    std::vector<Capcana*>capcane;
 
 public:
     /// Constructori si Destructori
@@ -29,6 +35,10 @@ public:
 
     /// Afisare folosita pentru debugging
     void Afisare();
+
+    friend class Mega;
+    friend class Ultra;
+    friend class Giga;
 };
 
-#endif // HARTA_H_INCLUDED
+#endif //THEWALK_REFACTOR_HARTA_H

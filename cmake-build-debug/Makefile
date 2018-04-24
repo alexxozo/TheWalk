@@ -48,10 +48,10 @@ RM = /cygdrive/c/Users/Alex/.CLion2018.1/system/cygwin_cmake/bin/cmake.exe -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/Alex/Desktop/TheWalk
+CMAKE_SOURCE_DIR = "/cygdrive/c/Users/Alex/Desktop/TheWalk(REFACTOR)"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/Alex/Desktop/TheWalk/cmake-build-debug
+CMAKE_BINARY_DIR = "/cygdrive/c/Users/Alex/Desktop/TheWalk(REFACTOR)/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Alex/Desktop/TheWalk/cmake-build-debug/CMakeFiles /cygdrive/c/Users/Alex/Desktop/TheWalk/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Alex/Desktop/TheWalk(REFACTOR)/cmake-build-debug/CMakeFiles" "/cygdrive/c/Users/Alex/Desktop/TheWalk(REFACTOR)/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/Alex/Desktop/TheWalk/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/cygdrive/c/Users/Alex/Desktop/TheWalk(REFACTOR)/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TheWalk
+# Target rules for targets named TheWalk_REFACTOR_
 
 # Build rule for target.
-TheWalk: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TheWalk
-.PHONY : TheWalk
+TheWalk_REFACTOR_: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 TheWalk_REFACTOR_
+.PHONY : TheWalk_REFACTOR_
 
 # fast build rule for target.
-TheWalk/fast:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/build
-.PHONY : TheWalk/fast
+TheWalk_REFACTOR_/fast:
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/build
+.PHONY : TheWalk_REFACTOR_/fast
 
 Harta_Implementare.o: Harta_Implementare.cpp.o
 
@@ -129,7 +129,7 @@ Harta_Implementare.o: Harta_Implementare.cpp.o
 
 # target to build an object file
 Harta_Implementare.cpp.o:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Harta_Implementare.cpp.o
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Harta_Implementare.cpp.o
 .PHONY : Harta_Implementare.cpp.o
 
 Harta_Implementare.i: Harta_Implementare.cpp.i
@@ -138,7 +138,7 @@ Harta_Implementare.i: Harta_Implementare.cpp.i
 
 # target to preprocess a source file
 Harta_Implementare.cpp.i:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Harta_Implementare.cpp.i
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Harta_Implementare.cpp.i
 .PHONY : Harta_Implementare.cpp.i
 
 Harta_Implementare.s: Harta_Implementare.cpp.s
@@ -147,7 +147,7 @@ Harta_Implementare.s: Harta_Implementare.cpp.s
 
 # target to generate assembly for a file
 Harta_Implementare.cpp.s:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Harta_Implementare.cpp.s
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Harta_Implementare.cpp.s
 .PHONY : Harta_Implementare.cpp.s
 
 Joc_Implementare.o: Joc_Implementare.cpp.o
@@ -156,7 +156,7 @@ Joc_Implementare.o: Joc_Implementare.cpp.o
 
 # target to build an object file
 Joc_Implementare.cpp.o:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Joc_Implementare.cpp.o
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Joc_Implementare.cpp.o
 .PHONY : Joc_Implementare.cpp.o
 
 Joc_Implementare.i: Joc_Implementare.cpp.i
@@ -165,7 +165,7 @@ Joc_Implementare.i: Joc_Implementare.cpp.i
 
 # target to preprocess a source file
 Joc_Implementare.cpp.i:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Joc_Implementare.cpp.i
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Joc_Implementare.cpp.i
 .PHONY : Joc_Implementare.cpp.i
 
 Joc_Implementare.s: Joc_Implementare.cpp.s
@@ -174,7 +174,7 @@ Joc_Implementare.s: Joc_Implementare.cpp.s
 
 # target to generate assembly for a file
 Joc_Implementare.cpp.s:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Joc_Implementare.cpp.s
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Joc_Implementare.cpp.s
 .PHONY : Joc_Implementare.cpp.s
 
 Robot_Implementare.o: Robot_Implementare.cpp.o
@@ -183,7 +183,7 @@ Robot_Implementare.o: Robot_Implementare.cpp.o
 
 # target to build an object file
 Robot_Implementare.cpp.o:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Robot_Implementare.cpp.o
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Robot_Implementare.cpp.o
 .PHONY : Robot_Implementare.cpp.o
 
 Robot_Implementare.i: Robot_Implementare.cpp.i
@@ -192,7 +192,7 @@ Robot_Implementare.i: Robot_Implementare.cpp.i
 
 # target to preprocess a source file
 Robot_Implementare.cpp.i:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Robot_Implementare.cpp.i
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Robot_Implementare.cpp.i
 .PHONY : Robot_Implementare.cpp.i
 
 Robot_Implementare.s: Robot_Implementare.cpp.s
@@ -201,7 +201,7 @@ Robot_Implementare.s: Robot_Implementare.cpp.s
 
 # target to generate assembly for a file
 Robot_Implementare.cpp.s:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/Robot_Implementare.cpp.s
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/Robot_Implementare.cpp.s
 .PHONY : Robot_Implementare.cpp.s
 
 main.o: main.cpp.o
@@ -210,7 +210,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -219,7 +219,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -228,7 +228,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/TheWalk.dir/build.make CMakeFiles/TheWalk.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/TheWalk_REFACTOR_.dir/build.make CMakeFiles/TheWalk_REFACTOR_.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -239,7 +239,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... TheWalk"
+	@echo "... TheWalk_REFACTOR_"
 	@echo "... Harta_Implementare.o"
 	@echo "... Harta_Implementare.i"
 	@echo "... Harta_Implementare.s"

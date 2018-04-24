@@ -1,5 +1,5 @@
-#ifndef JOC_H_INCLUDED
-#define JOC_H_INCLUDED
+#ifndef THEWALK_REFACTOR_JOC_H
+#define THEWALK_REFACTOR_JOC_H
 
 #include "StructuriHelper.h"
 
@@ -13,7 +13,7 @@ protected:
 
 public:
     /// Constructori si Destructori
-    Joc(int marime, Robot &r);
+    Joc(int marime, Robot *r);
 
     /// Functii pentru desfasurarea unei runde si a unui joc complet
     void Joaca(Mod mod);
@@ -22,4 +22,4 @@ public:
 
 };
 
-#endif // JOC_H_INCLUDED
+#endif //THEWALK_REFACTOR_JOC_H

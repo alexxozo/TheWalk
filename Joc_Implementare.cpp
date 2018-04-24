@@ -4,13 +4,8 @@
 #include "Robot.h"
 #include "Joc.h"
 
-/**
- * Constructorul pentru joc
- * @param marime = marimea hartii
- * @param r = tipul de robot
- */
-Joc::Joc(int marime, Robot &r) : harta(marime) {
-    robo = &r;
+Joc::Joc(int marime, Robot *r) : harta(marime) {
+    robo = r;
     robo->SetHarta(harta);
     runda = 0;
     joc_terminat = false;
@@ -76,7 +71,7 @@ void Joc::JoacaRunda() {
 
     /// Afisam harta impreuna cu playerul
     robo->Afisare();
-    robo->Verificare_Locatie();
+    robo->Verificare_Pozitie();
     pozitie_curenta = robo->GetPozitie();
     if ((pozitie_curenta.x == sosire.x && pozitie_curenta.y == sosire.y) || robo->Mort()) {
         joc_terminat = true;
@@ -145,10 +140,9 @@ void Joc::JoacaRundaSimulare(){
 
     /// Afisam harta impreuna cu playerul
     robo->Afisare();
-    robo->Verificare_Locatie();
+    robo->Verificare_Pozitie();
     pozitie_curenta = robo->GetPozitie();
     if ((pozitie_curenta.x == sosire.x && pozitie_curenta.y == sosire.y) || robo->Mort()) {
         joc_terminat = true;
     }
 }
-
